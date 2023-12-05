@@ -83,3 +83,51 @@ namespace HelloWorld
 ```
 
 #### 4. Split all the characters of a string into minimum number of SMS Messages possible in C#?
+```
+using System;
+using System.Collections.Generic;
+
+
+namespace HelloWorld
+{
+	public class Program
+	{
+		public static void Main(string[] args)
+		{
+			string inputMessage = "The term computer language is sometimes used interchangeably with programming language.[2] However, the usage of both terms varies among authors, including the exact scope of each. One usage describes programming languages as a subset of computer languages.[3] Similarly, languages used in computing that have a different goal than expressing computer programs are generically designated computer languages.";
+
+			List<string> smsMessages = SplitIntoSMS(inputMessage);
+			int index = 1;
+			foreach (var sms in smsMessages)
+			{
+			    Console.WriteLine("Message: " + index);
+			    Console.WriteLine(sms);
+			    index++;
+			}
+		}
+    
+		static List<string> SplitIntoSMS(string message)
+		{
+			List<string> smsMessages = new List<string>();
+			
+			int maxLength = 160; // Standard SMS character limit
+			int currentIndex = 0;
+			
+			while (currentIndex < message.Length)
+			{
+			    int remainingLength = message.Length - currentIndex;
+			    int currentLength = Math.Min(remainingLength, maxLength);
+			
+			    string sms = message.Substring(currentIndex, currentLength);
+			    smsMessages.Add(sms);
+			
+			    currentIndex += currentLength;
+			}
+			
+			return smsMessages;
+		}
+	}
+}
+```
+
+#### HAPPY CODING!!
