@@ -21,7 +21,7 @@ namespace HelloWorld
 }
 ```
 
-#### 2. Given an array of integers, Split all the items into two arrays then return single array by combining first & second splited arrays in C#.
+#### 2. Given an array of integers, Split all the items into two arrays then return single array by combining first & second splitted arrays in C#.
 ```
 namespace HelloWorld
 {
