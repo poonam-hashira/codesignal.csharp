@@ -106,4 +106,62 @@ namespace HelloWorld
 }
 ```
 
+#### 4. Given a string sentence and count the numbers of words which contain triple repeating letters i.e. the same letter appearing at least three times. Words in the sentence are a sequence of english letters surrounded by whitespace characters. Note letters should be counted in a case-insensitive manner using c#.
+```
+// Online C# Editor for free
+// Write, Edit and Run your C# code using C# Online Compiler
+
+using System;
+using System.Linq;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        string sentence = "Applep is poooping me in sentence goes here.";
+
+        int count = CountWordsWithTripleRepeatingLetters(sentence);
+        
+        Console.WriteLine($"Number of words with triple repeating letters: {count}");
+    
+    }
+    
+    static int CountWordsWithTripleRepeatingLetters(string sentence)
+    {
+        // Split the sentence into words
+        string[] words = sentence.Split(new char[] { ' ', '\t', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+        // ["Applep", "is", ..]
+
+        int count = 0;
+
+        foreach (var word in words)
+        {
+            if (HasTripleRepeatingLetters(word))
+            {
+                count++;
+                Console.WriteLine($"Matched word: {word}");
+            }
+        }
+
+        return count;
+    }
+
+    static bool HasTripleRepeatingLetters(string word)
+    {
+        // Convert the word to lowercase for case-insensitive comparison
+        string lowercaseWord = word.ToLower();
+
+        // Check if any character appears at least three times in the word
+        return lowercaseWord.GroupBy(c => c).Any(group => {
+            if (group.Count() >= 3) {
+                Console.WriteLine("\n");
+                Console.WriteLine("repeating letters: " + group.Key);
+            }
+            return group.Count() >= 3;
+            }
+        );
+    }
+}
+```
+
 #### HAPPY CODING!!
