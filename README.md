@@ -1,4 +1,4 @@
-# C# - CodeSignal Questions & Answers
+# C# Code Challange Questions & Answers
 
 #### 1. How to return an array in C#?
 ```
