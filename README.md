@@ -164,4 +164,51 @@ public class HelloWorld
 }
 ```
 
+#### 5. You are given an array of uppercase and lowercase of english letters recording representing a sequence of letters typed by the user. Your task is to count the number of times that the user changed keys while typing the sequence, considering the uppercase and lowercase letter or a given letter require the user to press same letter key (Ignoring modifiers like Shift or Caps Lock). For example, typing 'W' and 'w' require the user to press the same key, whereas typing 'W' and 'E' or typing 'W' and 'e' require the user to change keys using c#.
+```
+// Online C# Editor for free
+// Write, Edit and Run your C# code using C# Online Compiler
+
+using System;
+using System.Linq;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        string sequence = "aAbBCcdDEe";
+
+        int keyChanges = CountKeyChanges(sequence);
+
+        Console.WriteLine($"Number of key changes: {keyChanges}");
+    
+    }
+    
+    static int CountKeyChanges(string sequence)
+    {
+        if (string.IsNullOrEmpty(sequence) || sequence.Length == 1)
+        {
+            return 0; // No key changes for an empty or single-character sequence
+        }
+
+        int changes = 0;
+
+        // Convert the sequence to lowercase for case-insensitive comparison
+        sequence = sequence.ToLower();
+
+        // Check for key changes
+        for (int i = 1; i < sequence.Length; i++)
+        {
+            if (sequence[i] != sequence[i - 1])
+            {
+                Console.WriteLine($"changed key from {sequence[i - 1]} to {sequence[i]}");
+                changes++;
+            }
+        }
+
+        return changes;
+    }
+}
+```
+
 #### HAPPY CODING!!
